@@ -16,7 +16,7 @@ equalButton.addEventListener('click', equals);
 
 function clear() {
     displayNumbers.textContent = '';
-    result.textContent = '';
+    result.textContent = 0;
 
 }
 
@@ -26,10 +26,11 @@ function clearOne() {
 
 }
 
+
 function display(e) {
-    // if (result.textContent.charAt(0) == 0) {
-    //     result.textContent.replace('0', '');
-    // }
+    if (result.textContent.charAt(0) === '0') {
+        result.textContent = '';
+    }; 
     let number = e.target.textContent;
     if (number === '.' && result.textContent.includes('.')) return
     result.textContent = result.textContent + number;
