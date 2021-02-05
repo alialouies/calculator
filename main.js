@@ -17,7 +17,7 @@ equalButton.addEventListener('click', equals);
 function clear() {
     displayNumbers.textContent = '';
     result.textContent = 0;
-
+    // no empty lines at the end of the function
 };
 
 function clearOne() {
@@ -30,11 +30,11 @@ function clearOne() {
 function display(e) {
     if (result.textContent.charAt(0) === '0') {
         result.textContent = '';
-    }; 
+    };
     let number = e.target.textContent;
     if (number === '.' && result.textContent.includes('.')) return
     result.textContent = result.textContent + number;
-    
+
 };
 
 let firstOperand;
@@ -83,6 +83,9 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (parseFloat(b) == 0) {
+        // You should at least display the error.
+        // For example with:
+        alert('Error, you tried to divide by 0');
         return 'ERROR!';
     } else {
         return parseFloat(a) / parseFloat(b);
